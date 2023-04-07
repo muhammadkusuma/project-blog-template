@@ -31,12 +31,24 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('blog', 'Blog::index');
-$routes->get('blog/form', 'Blog::form');
-$routes->post('blog/simpan', 'Blog::simpan');
-// $routes->post('blog/view/(:any)', 'Blog::view/$1');
-$routes->get('blog/view/(:num)', 'Blog::view/$1');
-$routes->get('blog/form_edit/(:num)', 'Blog::form_edit/$1');
-$routes->post('blog/edit', 'Blog::edit');
+$routes->get('blog/form', 'Home::form');
+$routes->post('blog/simpan', 'Home::simpan');
+// $routes->post('blog/view/(:any)', 'Home::view/$1');
+$routes->get('blog/view/(:segment)', 'Home::view/$1');
+$routes->get('blog/form_edit/(:num)', 'Home::form_edit/$1');
+$routes->post('blog/edit', 'Home::edit');
+$routes->get('blog/hapus/(:num)', 'Blog::hapus/$1');
+
+
+
+
+// $routes->get('blog', 'Blog::index');
+// $routes->get('blog/form', 'Blog::form');
+// $routes->post('blog/simpan', 'Blog::simpan');
+// // $routes->post('blog/view/(:any)', 'Blog::view/$1');
+// $routes->get('blog/view/(:num)', 'Blog::view/$1');
+// $routes->get('blog/form_edit/(:num)', 'Blog::form_edit/$1');
+// $routes->post('blog/edit', 'Blog::edit');
 
 
 /*

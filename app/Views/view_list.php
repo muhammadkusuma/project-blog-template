@@ -40,7 +40,7 @@
                         <th>Gambar</th>
                         <th>Aksi</th>
                     </tr>
-                    <?php foreach ($artikel as $row) : ?>
+                    <?php foreach (array_slice($artikel, 0, 3) as $row) : ?>
                         <tr>
                             <td><?= $row['id']; ?></td>
                             <td><?= $row['judul']; ?></td>
@@ -52,6 +52,7 @@
                             <td><a href="blog/view/<?= $row['id']; ?>" class="btn btn-success">View</a> | <a href="blog/form_edit/<?= $row['id']; ?>" class="btn btn-primary">Edit</a> | <a href="blog/hapus/<?= $row['id']; ?>" class="btn btn-danger">Hapus</a> </td>
                         </tr>
                     <?php endforeach; ?>
+
                 </table>
             </div>
         </div>

@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\ModelsBlog;
 
-class Home extends BaseController
+class Profil extends BaseController
 {
     public function index()
     {

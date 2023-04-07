@@ -17,9 +17,9 @@ class ModelsBlog extends Model
         $query = $this->db->table($this->table)->insert($data);
         return $query;
     }
-    public function PilihBlog($id)
+    public function PilihBlog($slug)
     {
-        $query = $this->getWhere(['id' => $id]);
+        $query = $this->getWhere(['slug' => $slug]);
         return $query;
     }
     public function edit_data($id, $data)
