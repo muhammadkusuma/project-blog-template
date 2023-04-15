@@ -14,25 +14,28 @@
          <nav id="navbar" class="navbar">
              <ul>
                  <li><a href="<?= base_url() ?>">Beranda</a></li>
-                 <li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                     <ul>
-                         <li><a href="#">Kata Sambutan</a></li>
-                         <li><a href="#">Visi & Misi</a></li>
-                         <li><a href="#">Tujuan</a></li>
-                         <li><a href="#">Struktur Organisasi</a></li>
-                     </ul>
-                 </li>
-                 <li class="dropdown"><a href="#"><span>Laboratorium</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                     <ul>
-                         <li><a href="#">Rekayasa Sistem Informasi</a></li>
-                         <li><a href="#">Internet</a></li>
-                         <li><a href="#">Software Engineering</a></li>
-                     </ul>
-                 </li>
+                 <?php foreach ($menu as $m) : ?>
+                     <?php if ($m['submenu']) : ?>
+                         <li class="nav-item dropdown">
+                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                 <?= $m['menu'] ?>
+                             </a>
+                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                 <?php foreach ($m['submenu'] as $sub) : ?>
+                                     <li><a class="dropdown-item" href="<?= base_url($sub['slug']) ?>"><?= $sub['judul'] ?></a></li>
+                                 <?php endforeach ?>
+                             </ul>
+                         </li>
+                     <?php else : ?>
+                         <li class="nav-item">
+                             <a class="nav-link" href="#"><?= $m['menu'] ?></a>
+                         </li>
+                     <?php endif ?>
+                 <?php endforeach ?>
                  <li><a href="<?= base_url('blog') ?>">Blog</a></li>
-                 <li><a href="#">Dokumentasi</a></li>
-                 <li><a href="#">Unduh</a></li>
-                 <li><a href="contact.html">Kontak</a></li>
+                 <li><a href="<?= base_url('dokumentasi') ?>">Dokumentasi</a></li>
+                 <li><a href="<?= base_url('unduh') ?>">Unduh</a></li>
+                 <li><a href="<?= base_url('kontak') ?>">Kontak</a></li>
              </ul>
          </nav><!-- .navbar -->
 

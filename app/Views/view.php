@@ -13,13 +13,7 @@
         <!-- ======= Breadcrumbs ======= -->
         <div class="breadcrumbs d-flex align-items-center" style="background-image: url('<?= base_url('assets/img/Perpustakaan-1050x525.jpg') ?>');">
             <div class="container position-relative d-flex flex-column align-items-center">
-
                 <h2><?= $artikel->judul; ?></h2>
-                <ol>
-                    <li><a href="<?= base_url() ?>">Beranda</a></li>
-                    <li><a href="<?= base_url('blog') ?>">Blog</a></li>
-                    <li><?= $artikel->judul; ?></li>
-                </ol>
 
             </div>
         </div><!-- End Breadcrumbs -->

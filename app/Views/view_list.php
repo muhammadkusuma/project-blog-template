@@ -40,7 +40,7 @@
                         <th>Gambar</th>
                         <th>Aksi</th>
                     </tr>
-                    <?php foreach (array_slice($artikel, 0, 3) as $row) : ?>
+                    <?php foreach ($artikel as $row) : ?>
                         <tr>
                             <td><?= $row['id']; ?></td>
                             <td><?= $row['judul']; ?></td>

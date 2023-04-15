@@ -19,9 +19,9 @@
                         <p>Selamat Datang di Website Laboratorium Program Studi Sistem Informasi Fakultas Sains dan Teknologi
                             Universitas Islam Negeri Sultan Syarif Kasim Riau</p>
                     </blockquote>
-                    <!-- <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+                    <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
                         <a href="#about" class="btn-get-started">Lebih Lanjut</a>
-                    </div> -->
+                    </div>
 
                 </div>
             </div>
@@ -39,11 +39,15 @@
 
                 </div>
 
-                <div class="row gy-5 mx-auto">
-                    <?php foreach (array_slice($artikel, 0, 8) as $row) : ?>
-                        <div class="col-xl-3 col-md-6 mx-auto" data-aos="fade-up" data-aos-delay="100">
+                <div class="row gy-5">
+
+                    <?php foreach (array_slice($artikel, 0, 3) as $row) : ?>
+
+
+                        <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
                             <div class="post-box">
                                 <div class="post-img">
+                                    <!-- <img src="assets/img/blog/blog-1.jpg" class="img-fluid" alt=""> -->
                                     <?php
                                     if (!empty($row["gambar"])) {
                                         echo '<img src="' . base_url("assets/images/$row[gambar]") . '"class="img-fluid">';
@@ -54,10 +58,17 @@
                                     <span class="post-date"><?= $row['created_at']; ?></span>
                                 </div>
                                 <h3 class="post-title"><?= $row['judul']; ?></h3>
+                                <!-- <p>Illum voluptas ab enim placeat. Adipisci enim velit nulla. Vel omnis laudantium. Asperiores eum ipsa
+                                    est officiis. Modi qui magni est...</p> -->
                                 <a href="blog/view/<?= $row['slug']; ?>" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                                <!-- <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a> -->
                             </div>
                         </div>
                     <?php endforeach; ?>
+
+
+
+
                 </div>
 
             </div>

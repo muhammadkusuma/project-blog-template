@@ -4,13 +4,17 @@ namespace App\Controllers;
 
 use App\Models\MenuModel;
 use App\Models\ModelsBlog;
+use App\Models\DokumentasiModel;
 
-class Blog extends BaseController
+class Dokumentasi extends BaseController
 {
-
     public function index()
     {
         $menuModel = new MenuModel();
+        $blogModel = new ModelsBlog();
+        $dokumentasiModel = new DokumentasiModel();
+
+        $data['dokumentasi'] = $dokumentasiModel->getFotoDokumentasi();
         $data['menu'] = $menuModel->getMenu();
 
         foreach ($data['menu'] as &$m) {
@@ -19,18 +23,15 @@ class Blog extends BaseController
             }
         }
 
-        $data['blog'] = 'Blog';
+        $data['blog'] = 'Dokumentasi';
 
-        $model = new ModelsBlog();
         if (!$this->validate([])) {
             $data['validation'] = $this->validator;
-            $data['artikel'] = $model->where('id_menu', null)->findAll();
-            return view('view_blog', $data);
-        } else {
-            $data['artikel'] = $model->where('id_menu', null)->findAll();
-            return view('view_blog', $data);
         }
+
+        // Get articles where id_menu is empty
+        $data['artikel'] = $blogModel->where('id_menu', null)->findAll();
+
+        return view('dokumentasi', $data);
     }
-
-
 }
