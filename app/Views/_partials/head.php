@@ -5,17 +5,16 @@
     <?php
     if (!empty($artikel->judul)) {
         echo $artikel->judul . ' | ';
-    }elseif (!empty($blog)) {
+    } elseif (!empty($blog)) {
         echo $blog . ' | ';
     }
-    ?>Labor SIF
+    ?><?= $detail['0']['nama_website'] ?>
 </title>
 <meta content="" name="description">
 <meta content="" name="keywords">
 
 <!-- Favicons -->
-<link href="<?= base_url('assets/img/Himasi.ico') ?>" rel="icon">
-<link href="<?= base_url('assets/img/apple-touch-icon.png') ?>" rel="apple-touch-icon">
+<link href="<?= base_url('assets/img/' . $detail['0']['favicon']) ?>" rel="icon">
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">

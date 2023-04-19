@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Models\MenuModel;
 use App\Models\ModelsBlog;
+use App\Models\DetailModel;
+use App\Models\LinkModel;
 
 class Blog extends BaseController
 {
@@ -12,7 +14,11 @@ class Blog extends BaseController
     {
         $menuModel = new MenuModel();
         $data['menu'] = $menuModel->getMenu();
+        $detailweb = new DetailModel();
+        $link = new LinkModel();
 
+        $data['link'] = $link->getLink();
+        $data['detail'] = $detailweb->detail();
         foreach ($data['menu'] as &$m) {
             if ($m['submenu']) {
                 $m['submenu'] = $menuModel->getSubMenu($m['id_menu']);

@@ -6,6 +6,8 @@ use App\Models\UnduhModel;
 use App\Models\DokumentasiModel;
 use App\Models\MenuModel;
 use App\Models\ModelsBlog;
+use App\Models\DetailModel;
+use App\Models\LinkModel;
 
 class Unduh extends BaseController
 {
@@ -15,7 +17,11 @@ class Unduh extends BaseController
         $blogModel = new ModelsBlog();
         $dokumentasiModel = new DokumentasiModel();
         $unduhModel = new UnduhModel();
+        $detailweb = new DetailModel();
+        $link = new LinkModel();
 
+        $data['link'] = $link->getLink();
+        $data['detail'] = $detailweb->detail();
         $data['menu'] = $menuModel->getMenu();
         foreach ($data['menu'] as &$m) {
             if ($m['submenu']) {

@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Models\MenuModel;
 use App\Models\ModelsBlog;
 use App\Models\DokumentasiModel;
+use App\Models\DetailModel;
+use App\Models\LinkModel;
 
 class Dokumentasi extends BaseController
 {
@@ -13,7 +15,11 @@ class Dokumentasi extends BaseController
         $menuModel = new MenuModel();
         $blogModel = new ModelsBlog();
         $dokumentasiModel = new DokumentasiModel();
+        $detailweb = new DetailModel();
+        $link = new LinkModel();
 
+        $data['link'] = $link->getLink();
+        $data['detail'] = $detailweb->detail();
         $data['dokumentasi'] = $dokumentasiModel->getFotoDokumentasi();
         $data['menu'] = $menuModel->getMenu();
 

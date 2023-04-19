@@ -26,33 +26,63 @@
             </div>
         </div><!-- End Breadcrumbs -->
 
-        <!-- ======= Portfolio Section ======= -->
-        <section id="portfolio" class="portfolio">
-            <div class="container mx-auto" data-aos="fade-up">
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container position-relative" data-aos="fade-up">
 
-                <div class="portfolio-isotope mx-auto" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order">
+                <div class="row gy-4 d-flex justify-content-end">
 
+                    <div class="col-lg-5" data-aos="fade-up" data-aos-delay="100">
 
-                    <?= dd($kontak) ?>
+                        <div class="info-item d-flex">
+                            <i class="bi bi-geo-alt flex-shrink-0"></i>
+                            <div>
+                                <h4>Location:</h4>
+                                <p><?= $detail['0']['alamat'] ?></p>
+                            </div>
+                        </div><!-- End Info Item -->
 
-                    <div class="row gy-4 portfolio-container mx-auto" data-aos="fade-up" data-aos-delay="300">
-                        <?php foreach ($kontak as $item) : ?>
-                            <div class="col-lg-4 col-md-6 portfolio-item filter-app mx-auto">
-                                <div class="portfolio-info">
-                                    <h4><?= $item['nama_website'] ?></h4>
-                                    <p><?= $item['alamat'] ?></p>
-                                    <p><?= $item['email'] ?></p>
-                                    <p><?= $item['favicon'] ?></p>
-                                    <p><?= $item['logo'] ?></p>
+                        <div class="info-item d-flex">
+                            <i class="bi bi-envelope flex-shrink-0"></i>
+                            <div>
+                                <h4>Email:</h4>
+                                <p><?= $detail['0']['email'] ?></p>
+                            </div>
+                        </div><!-- End Info Item -->
+
+                    </div>
+
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
+
+                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
                                 </div>
-                            </div><!-- End Portfolio Item -->
-                        <?php endforeach; ?>
-                    </div><!-- End Portfolio Container -->
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                            </div>
+                            <div class="my-3">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                            </div>
+                            <div class="text-center"><button type="submit">Send Message</button></div>
+                        </form>
+
+                    </div><!-- End Contact Form -->
 
                 </div>
 
             </div>
-        </section><!-- End Portfolio Section -->
+        </section><!-- End Contact Section -->
 
     </main><!-- End #main -->
 

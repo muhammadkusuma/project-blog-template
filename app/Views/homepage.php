@@ -19,9 +19,9 @@
                         <p>Selamat Datang di Website Laboratorium Program Studi Sistem Informasi Fakultas Sains dan Teknologi
                             Universitas Islam Negeri Sultan Syarif Kasim Riau</p>
                     </blockquote>
-                    <!-- <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-                        <a href="#about" class="btn-get-started">Lebih Lanjut</a>
-                    </div> -->
+                    <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+                        <a href="#recent-posts" class="btn-get-started">Lebih Lanjut</a>
+                    </div>
 
                 </div>
             </div>
@@ -36,7 +36,6 @@
 
                 <div class="section-header">
                     <h2>Postingan Terbaru</h2>
-
                 </div>
 
                 <div class="row gy-5 mx-auto">

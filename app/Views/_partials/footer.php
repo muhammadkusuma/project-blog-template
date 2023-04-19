@@ -5,8 +5,8 @@
          <div class="container">
              <div class="row gy-4">
                  <div class="col-lg-5 col-md-12 footer-info">
-                     <a href="index.html" class="logo d-flex align-items-center">
-                         <span>Logo</span>
+                     <a href="<?= base_url() ?>" class="logo d-flex align-items-center">
+                         <span> <img src="assets/img/<?= $detail['0']['logo'] ?>" alt="logo"></span>
                      </a>
                      <p>Laboratorium Program Studi Sistem Informasi Fakultas Sains dan Teknologi Universitas Islam Negeri Sultan
                          Syarif Kasim Riau</p>
@@ -15,28 +15,35 @@
                  <div class="col-lg-2 col-6 footer-links">
                      <h4>Tautan Berguna</h4>
                      <ul>
-                         <li><i class="bi bi-dash"></i> <a href="#">UIN Suska Riau</a></li>
-                         <li><i class="bi bi-dash"></i> <a href="#">Fakultas Sains dan Teknologi</a></li>
-                         <li><i class="bi bi-dash"></i> <a href="#">Prodi Sistem Informasi</a></li>
-                         <li><i class="bi bi-dash"></i> <a href="#">iRaise</a></li>
-                         <li><i class="bi bi-dash"></i> <a href="#">E-Learning</a></li>
+                         <?php
+                            foreach ($link as $l) {
+                                if ($l['tipe_link'] == 'uin') {
+                                    echo '<li><i class="bi bi-dash"></i> <a href="' . $l['link'] . '">' . $l['nama_link'] . '</a></li>';
+                                }
+                            }
+                            ?>
                      </ul>
                  </div>
 
                  <div class="col-lg-2 col-6 footer-links">
                      <h4>Produk Mahasiswa</h4>
                      <ul>
-                         <li><i class="bi bi-dash"></i> <a href="#">SITASI</a></li>
-                         <li><i class="bi bi-dash"></i> <a href="#">SIKAPE</a></li>
+                         <?php
+                            foreach ($link as $l) {
+                                if ($l['tipe_link'] == 'produk_mahasiswa') {
+                                    echo '<li><i class="bi bi-dash"></i> <a href="' . $l['link'] . '">' . $l['nama_link'] . '</a></li>';
+                                }
+                            }
+                            ?>
                      </ul>
                  </div>
 
                  <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
                      <h4>Hubungi Kami</h4>
                      <p>
-                         Jl HR. Soebrantas Panam, Simpang Baru, Tampan, Kota Pekanbaru, Riau 28293
+                         <?= $detail['0']['alamat'] ?>
                          <br>
-                         <strong>Email:</strong> lab-si@uin-suska.ac.id<br>
+                         <strong>Email:</strong> <?= $detail['0']['email'] ?><br>
                      </p>
 
                  </div>

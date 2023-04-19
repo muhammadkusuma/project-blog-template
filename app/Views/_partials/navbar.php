@@ -3,9 +3,8 @@
      <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
          <a href="index.html" class="logo d-flex align-items-center">
-             <!-- Uncomment the line below if you also wish to use an image logo -->
-             <!-- <img src="assets/img/logo.png" alt=""> -->
-             <h1 class="d-flex align-items-center">Labor SIF</h1>
+             <img src="assets/img/<?= $detail['0']['logo'] ?>" alt="logo">
+             <!-- <h1 class="d-flex align-items-center">Labor SIF</h1> -->
          </a>
 
          <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>

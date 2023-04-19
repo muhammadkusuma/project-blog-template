@@ -36,6 +36,7 @@ $routes->get('unduh', 'Unduh::index');
 $routes->get('kontak', 'Kontak::index');
 $routes->get('(:segment)', 'Menu::view/$1');
 
+
 $routes->get('blog/form', 'Home::form');
 $routes->post('blog/simpan', 'Home::simpan');
 // $routes->post('blog/view/(:any)', 'Home::view/$1');
