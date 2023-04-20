@@ -34,6 +34,11 @@ $routes->get('blog', 'Blog::index');
 $routes->get('dokumentasi', 'Dokumentasi::index');
 $routes->get('unduh', 'Unduh::index');
 $routes->get('kontak', 'Kontak::index');
+
+$routes->get('login', 'Masuk::index');
+$routes->get('dashbor', 'Dashboard::index');
+
+
 $routes->get('(:segment)', 'Menu::view/$1');
 
 
