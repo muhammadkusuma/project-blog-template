@@ -10,6 +10,9 @@
     ?><?= $detail['0']['nama_website'] ?>
 </title>
 
+<!-- Favicons -->
+<link href="<?= base_url('assets/img/' . $detail['0']['favicon']) ?>" rel="icon">
+
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 <!-- Font Awesome -->
