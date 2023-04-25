@@ -1,3 +1,5 @@
+<!-- Propper js -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <!-- jQuery -->
 <script src="<?= base_url('dashboard/plugins/jquery/jquery.min.js') ?>"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -101,6 +103,14 @@
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
     })();
+</script>
+<!-- pagination -->
+<script>
+    $(document).ready(function() {
+        $('ul.pagination').addClass('justify-content-center'); // menambahkan class justify-content-center ke ul.pagination
+        $('.pagination li').addClass('page-item');
+        $('.pagination li a').addClass('page-link');
+    });
 </script>
 <!-- Copyright -->
 <footer class="main-footer">

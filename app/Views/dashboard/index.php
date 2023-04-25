@@ -33,87 +33,71 @@
 
         <!-- Main content -->
         <section class="content">
+
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card card-outline card-info">
-                        <div class="card-header">
-                            <h4>
-                                Buat Konten Baru
-                            </h4>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col mb-3">
-                                    <input type='text' class="form-control w-100" placeholder="Judul Konten" />
-                                </div>
-                            </div>
-                            <textarea id="summernote">
-                            Place <em>some</em> <u>text</u> <strong>here</strong>
-                        </textarea>
-                            <div class="row">
-                                <div class="col">
-                                    <!-- Date Picker -->
-                                    <input type='text' class="form-control w-100" id='datetimepicker1' placeholder="Tanggal dan Waktu Posting" />
-                                </div>
-                                <div class="col">
-                                    <button type="posting" class="btn btn-primary w-100">Posting</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- /.col-->
-
-            </div>
-            <!-- ./row -->
-
-            <div class="row">
-                <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Daftar Konten</h4>
+                            <a href="<?php echo base_url('post/create'); ?>" class="btn btn-success btn-sm float-right">Konten Baru</a>
                         </div>
-                        <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example2" class="table table-bordered table-hover">
-                                <thead>
+
+                            <?php if (session()->getFlashdata('success')) { ?>
+                                <div class="alert alert-success">
+                                    <?php echo session()->getFlashdata('success'); ?>
+                                </div>
+                            <?php } ?>
+
+                            <?php if (session()->getFlashdata('error')) { ?>
+                                <div class="alert alert-danger">
+                                    <?php echo session()->getFlashdata('error'); ?>
+                                </div>
+                            <?php } ?>
+
+                            <table class="table table-bordered">
+                                <thead class="text-center">
                                     <tr>
-                                        <th>Judul</th>
-                                        <th>Penulis</th>
-                                        <th>Kategori</th>
-                                        <th>Tanggal</th>
-                                        <th>Aksi</th>
+                                        <th scope="col">Judul</th>
+                                        <th scope="col">Slug</th>
+                                        <th scope="col">Terbit</th>
+                                        <th scope="col">Aksi</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Other browsers</td>
-                                        <td>All others</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>U</td>
-                                    </tr>
+                                <tbody class="text-center">
+                                    <?php if (!empty($posts) && is_array($posts)) { ?>
+                                        <?php foreach ($posts as $row) { ?>
+                                            <?php if ($row['id_menu'] === null) { ?>
+                                                <tr>
+                                                    <td><?php echo $row['judul']; ?></td>
+                                                    <td><?php echo $row['slug']; ?></td>
+                                                    <td><?php echo $row['created_at']; ?></td>
+                                                    <td>
+                                                        <a href="<?php echo base_url('post/edit/' . $row['id']); ?>" class="btn btn-primary btn-sm">Ubah</a>
+                                                        <a href="<?php echo base_url('post/destroy/' . $row['id']); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Kamu yakin ingin menghapus <?= $row['judul']; ?> ?');">Hapus</a>
+                                                    </td>
+                                                </tr>
+                                            <?php } ?>
+                                        <?php } ?>
+                                    <?php } else { ?>
+                                        <tr>
+                                            <td colspan="4" class="text-center">No post found.</td>
+                                        </tr>
+                                    <?php } ?>
+
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>Judul</th>
-                                        <th>Penulis</th>
-                                        <th>Kategori</th>
-                                        <th>Tanggal</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </tfoot>
                             </table>
+
+                            <br>
+
+                            <?= $pager->links(); ?>
+
                         </div>
-                        <!-- /.card-body -->
+
                     </div>
-                    <!-- /.card -->
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
+
+
         </section>
         <!-- /.content -->
     </div>

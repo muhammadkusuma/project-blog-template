@@ -9,6 +9,7 @@
     }
     ?><?= $detail['0']['nama_website'] ?>
 </title>
+<meta name="<?= csrf_token() ?>" content="<?= csrf_hash() ?>">
 
 <!-- Favicons -->
 <link href="<?= base_url('assets/img/' . $detail['0']['favicon']) ?>" rel="icon">
