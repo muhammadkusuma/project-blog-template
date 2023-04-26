@@ -35,6 +35,7 @@ $routes->set404Override();
 $routes->get('login', 'Masuk::index');
 $routes->get('dashbor', 'Artikel::index');
 $routes->get('post/destroy/(:num)', 'Artikel::destroy/$1');
+$routes->get('post/edit/(:num)', 'Artikel::edit/$1');
 
 // homepage
 $routes->get('/', 'Menu::index');

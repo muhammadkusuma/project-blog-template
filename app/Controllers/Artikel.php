@@ -67,18 +67,18 @@ class Artikel extends BaseController
     public function edit($id)
     {
         $post = $this->model->find($id);
-
+        $detailweb = new DetailModel(); // definisikan variabel $detailweb
         if (empty($post)) {
             session()->setFlashdata('error', 'Post not found');
             return redirect()->back();
         }
 
         $data = [
-            'title' => 'Edit Post',
-            'post' => $post
+            'post' => $post,
+            'detail' => $detailweb->detail()
         ];
 
-        return view('posts/edit', $data);
+        return view('dashboard/posts/edit', $data);
     }
 
     public function update($id)
