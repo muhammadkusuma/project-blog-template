@@ -75,7 +75,8 @@ class Artikel extends BaseController
 
         $data = [
             'post' => $post,
-            'detail' => $detailweb->detail()
+            'detail' => $detailweb->detail(),
+            'blog' => 'Edit Konten'
         ];
 
         return view('dashboard/posts/edit', $data);
