@@ -174,4 +174,22 @@
             useCurrent: false // Do not set the current date/time as the default value
         });
     });
-</script>u
+</script>
+
+
+<script>
+    // Fungsi untuk menampilkan preview gambar saat mengunggah gambar
+    function previewImage() {
+        var preview = document.querySelector('#preview');
+        var file = document.querySelector('#gambar').files[0];
+        var reader = new FileReader();
+
+        reader.addEventListener("load", function() {
+            preview.src = reader.result;
+        }, false);
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    }
+</script>

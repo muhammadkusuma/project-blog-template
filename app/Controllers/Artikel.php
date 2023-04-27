@@ -23,7 +23,7 @@ class Artikel extends BaseController
     {
         $detailweb = new DetailModel(); // definisikan variabel $detailweb
         $data = [
-            'posts' => $this->model->paginate(10),
+            'posts' => $this->model->paginate(20),
             'pager' => $this->model->pager,
             'detail' => $detailweb->detail(),
             'blog' => 'Dashboard'
@@ -35,34 +35,53 @@ class Artikel extends BaseController
 
     public function create()
     {
-        $data = ['title' => 'Create new post'];
+        $detailweb = new DetailModel(); // definisikan variabel $detailweb
+        $data = [
+            'detail' => $detailweb->detail(),
+            'blog' => 'Buat Konten Baru'
+        ];
 
-        return view('posts/create', $data);
+        return view('dashboard/posts/create', $data);
     }
 
     public function store()
     {
-        $title = $this->request->getPost('title');
-        $content = $this->request->getPost('content');
-        $status = $this->request->getPost('status');
+        $judul = $this->request->getPost('judul');
+        $isi = $this->request->getPost('isi');
+        $terbit = $this->request->getPost('terbit');
+        $gambar = $this->request->getFile('gambar');
+
+        // Konversi format datetime ke format yang diterima oleh basis data
+        $terbit = date('Y-m-d H:i:s', strtotime($terbit));
 
         $post = [
-            'title' => $title,
-            'content' => $content,
-            'status' => $status,
-            'slug' => url_title(strtolower($title)),
+            'judul' => $judul,
+            'isi' => $isi,
+            'created_at' => $terbit,
+            'slug' => url_title(strtolower($judul)),
         ];
+
+        if ($gambar && $gambar->isValid()) {
+            $newName = $gambar->getRandomName(); // Menghasilkan nama acak untuk file foto
+            $gambar->move('uploads/img/', $newName);
+            $post['gambar'] = $newName;
+        }
 
         $save = $this->model->save($post);
 
         if ($save) {
             session()->setFlashdata('success', 'Post has been added successfully.');
-            return redirect()->to(base_url('post'));
+            return redirect()->to(base_url('dashbor'));
         } else {
-            session()->setFlashdata('error', 'Some problems occured, please try again.');
+            session()->setFlashdata('error', 'Some problems occurred, please try again.');
             return redirect()->back();
         }
     }
+
+
+
+
+
 
     public function edit($id)
     {
