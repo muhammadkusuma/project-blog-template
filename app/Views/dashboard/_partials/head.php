@@ -43,3 +43,9 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+
+
+<!-- DataTables -->
+<link rel="stylesheet" href="<?= base_url('dashboard/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') ?>">
+<link rel="stylesheet" href="<?= base_url('dashboard/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') ?>">
+<link rel="stylesheet" href="<?= base_url('dashboard/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') ?>">
