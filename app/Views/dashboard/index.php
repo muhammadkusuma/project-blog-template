@@ -37,7 +37,17 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <a href="<?php echo base_url('post/create'); ?>" class="btn btn-success btn-sm float-right">Konten Baru</a>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <input type="text" id="searchInput" class="form-control" placeholder="Cari Judul">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-auto text-md-right">
+                                <a href="<?php echo base_url('post/create'); ?>" class="btn btn-success">Konten Baru</a>
+                            </div>
+                        </div>
+
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -51,7 +61,7 @@
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="searchTable">
                                 <?php if (!empty($posts) && is_array($posts)) { ?>
                                     <?php foreach ($posts as $row) { ?>
                                         <?php if ($row['id_menu'] === null) { ?>
