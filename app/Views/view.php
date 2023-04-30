@@ -31,7 +31,7 @@
                             <div class="post-img mx-auto">
                                 <?php
                                 if (!empty($artikel->gambar)) {
-                                    echo '<img src="' . base_url("assets/images/$artikel->gambar") . '" class="img-fluid">';
+                                    echo '<img src="' . base_url("uploads/img/$artikel->gambar") . '" class="img-fluid">';
                                 }
                                 ?>
                             </div>

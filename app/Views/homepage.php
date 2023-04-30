@@ -45,7 +45,7 @@
                                 <div class="post-img">
                                     <?php
                                     if (!empty($row["gambar"])) {
-                                        echo '<img src="' . base_url("assets/images/$row[gambar]") . '"class="img-fluid">';
+                                        echo '<img src="' . base_url("uploads/img/$row[gambar]") . '"class="img-fluid">';
                                     }
                                     ?>
                                 </div>

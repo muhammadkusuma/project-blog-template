@@ -53,13 +53,13 @@ $routes->get('kontak', 'Kontak::index');
 $routes->get('(:segment)', 'Menu::view/$1');
 
 
-// $routes->get('blog/form', 'Home::form');
-// $routes->post('blog/simpan', 'Home::simpan');
-// // $routes->post('blog/view/(:any)', 'Home::view/$1');
-// $routes->get('blog/view/(:segment)', 'Menu::view/$1');
-// $routes->get('blog/form_edit/(:num)', 'Home::form_edit/$1');
-// $routes->post('blog/edit', 'Home::edit');
-// $routes->get('blog/hapus/(:num)', 'Blog::hapus/$1');
+$routes->get('blog/form', 'Home::form');
+$routes->post('blog/simpan', 'Home::simpan');
+// $routes->post('blog/view/(:any)', 'Home::view/$1');
+$routes->get('blog/view/(:segment)', 'Menu::view/$1');
+$routes->get('blog/form_edit/(:num)', 'Home::form_edit/$1');
+$routes->post('blog/edit', 'Home::edit');
+$routes->get('blog/hapus/(:num)', 'Blog::hapus/$1');
 
 // blog
 // $routes->get('/', 'Home::index');
