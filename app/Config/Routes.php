@@ -31,13 +31,20 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 // $routes->get('/', 'Post::index');
 
-// post
+// login
 $routes->get('login', 'Masuk::index');
+// dashbor
 $routes->get('dashbor', 'Artikel::index');
+// create post
 $routes->get('post/create', 'Artikel::create');
+// add post
 $routes->post('post/store', 'Artikel::store');
+// hapus post
 $routes->get('post/destroy/(:num)', 'Artikel::destroy/$1');
+// edit post
 $routes->get('post/edit/(:num)', 'Artikel::edit/$1');
+// update post
+$routes->post('post/update/(:num)', 'Artikel::update/$1');
 
 
 // homepage

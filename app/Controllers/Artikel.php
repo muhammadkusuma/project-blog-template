@@ -79,10 +79,6 @@ class Artikel extends BaseController
     }
 
 
-
-
-
-
     public function edit($id)
     {
         $post = $this->model->find($id);
@@ -103,27 +99,46 @@ class Artikel extends BaseController
 
     public function update($id)
     {
-        $title = $this->request->getPost('title');
-        $content = $this->request->getPost('content');
-        $status = $this->request->getPost('status');
+        $post = $this->model->find($id);
 
-        $post = [
-            'title' => $title,
-            'content' => $content,
-            'status' => $status,
-            'slug' => url_title($title)
+        if (empty($post)) {
+            session()->setFlashdata('error', 'Post not found');
+            return redirect()->back();
+        }
+
+        $judul = $this->request->getPost('judul');
+        $isi = $this->request->getPost('isi');
+        $terbit = $this->request->getPost('terbit');
+        $gambar = $this->request->getFile('gambar');
+
+        // Konversi format datetime ke format yang diterima oleh basis data
+        $terbit = date('Y-m-d H:i:s', strtotime($terbit));
+
+        $data = [
+            'judul' => $judul,
+            'isi' => $isi,
+            'created_at' => $terbit,
+            'slug' => url_title(strtolower($judul)),
         ];
 
-        $update = $this->model->update($id, $post);
+        if ($gambar && $gambar->isValid()) {
+            $newName = $gambar->getRandomName(); // Menghasilkan nama acak untuk file foto
+            $gambar->move('uploads/img/', $newName);
+            $data['gambar'] = $newName;
+        }
 
-        if ($update) {
-            session()->setFlashdata('success', 'Post has been updated successfully');
-            return redirect()->to(base_url('post'));
+        $save = $this->model->update($id, $data); // Menggunakan method update pada model
+
+        if ($save) {
+            session()->setFlashdata('success', 'Post has been updated successfully.');
+            return redirect()->to(base_url('dashbor'));
         } else {
-            session()->setFlashdata('error', 'Some problems occured, please try again.');
+            session()->setFlashdata('error', 'Some problems occurred, please try again.');
             return redirect()->back();
         }
     }
+
+
 
     public function destroy($id)
     {
