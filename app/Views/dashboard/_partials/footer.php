@@ -205,3 +205,21 @@
         });
     });
 </script>
+
+<!-- preview detail -->
+<script>
+    function previewImage(event, previewId) {
+        var reader = new FileReader();
+        var previewImage = document.getElementById(previewId);
+
+        reader.onload = function() {
+            if (reader.readyState == 2) {
+                previewImage.src = reader.result;
+            }
+        }
+
+        if (event.target.files[0]) {
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    }
+</script>

@@ -14,7 +14,7 @@
 <meta content="" name="keywords">
 
 <!-- Favicons -->
-<link href="<?= base_url('assets/img/' . $detail['0']['favicon']) ?>" rel="icon">
+<link href="<?= base_url('uploads/img/' . $detail['0']['favicon']) ?>" rel="icon">
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">

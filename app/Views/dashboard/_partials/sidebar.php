@@ -2,9 +2,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="<?= base_url('/dashbor') ?>" class="brand-link">
-        <img src="assets/img/<?= $detail['0']['logo'] ?>" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">
-        </span>
+        <img src="<?= base_url('uploads/img/') ?><?= $detail['0']['logo'] ?>" alt="logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light"><?= $detail['0']['nama_website'] ?></span>
     </a>
 
     <!-- Sidebar -->
@@ -62,7 +61,8 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a href="<?= base_url('dashbor/detail') ?>" class="nav-link ">
+                    <a href="<?= base_url('dashbor/detail/' . $detail['0']['id_detail']) ?>" class="nav-link ">
+
                         <i class="nav-icon fas fa-info-circle"></i>
                         <p>
                             Detail Website

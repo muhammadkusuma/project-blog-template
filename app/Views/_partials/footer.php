@@ -6,7 +6,7 @@
              <div class="row gy-4">
                  <div class="col-lg-5 col-md-12 footer-info">
                      <a href="<?= base_url() ?>" class="logo d-flex align-items-center">
-                         <span> <img src="assets/img/<?= $detail['0']['logo'] ?>" alt="logo"></span>
+                         <span> <img src="<?=base_url('uploads/img/')?><?= $detail['0']['logo'] ?>" alt="logo"></span>
                      </a>
                      <p>Laboratorium Program Studi Sistem Informasi Fakultas Sains dan Teknologi Universitas Islam Negeri Sultan
                          Syarif Kasim Riau</p>

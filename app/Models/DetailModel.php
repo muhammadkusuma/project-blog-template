@@ -14,4 +14,10 @@ class DetailModel extends Model
     {
         return $this->findAll();
     }
+
+    public function getDetailById($id)
+    {
+        // Mengambil detail berdasarkan id
+        return $this->find($id);
+    }
 }

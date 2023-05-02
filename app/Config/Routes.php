@@ -47,7 +47,9 @@ $routes->get('post/edit/(:num)', 'Artikel::edit/$1');
 $routes->post('post/update/(:num)', 'Artikel::update/$1');
 
 // detail
-$routes->get('/dashbor/detail', 'Detail::index');
+$routes->get('dashbor/detail/(:num)', 'Detail::index/$1');
+// $routes->post('detail/update', 'DetailController::update');
+$routes->post('detail/update/(:num)', 'Detail::update/$1');
 
 // homepage
 $routes->get('/', 'Menu::index');
