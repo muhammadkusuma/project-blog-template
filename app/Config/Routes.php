@@ -46,6 +46,8 @@ $routes->get('post/edit/(:num)', 'Artikel::edit/$1');
 // update post
 $routes->post('post/update/(:num)', 'Artikel::update/$1');
 
+// detail
+$routes->get('/dashbor/detail', 'Detail::index');
 
 // homepage
 $routes->get('/', 'Menu::index');

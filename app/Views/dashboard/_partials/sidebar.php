@@ -29,14 +29,14 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item ">
+                <!-- <li class="nav-item ">
                     <a href="<?= base_url('dashboard/unduh') ?>" class="nav-link ">
                         <i class="nav-icon fas fa-download"></i>
                         <p>
                             Unduh
                         </p>
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-item ">
                     <a href="<?= base_url('dashboard/menu') ?>" class="nav-link ">
                         <i class="nav-icon fas fa-bars"></i>
@@ -62,7 +62,7 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a href="<?= base_url('dashboard/detail') ?>" class="nav-link ">
+                    <a href="<?= base_url('dashbor/detail') ?>" class="nav-link ">
                         <i class="nav-icon fas fa-info-circle"></i>
                         <p>
                             Detail Website
