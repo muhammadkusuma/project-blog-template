@@ -49,3 +49,7 @@
 <link rel="stylesheet" href="<?= base_url('dashboard/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') ?>">
 <link rel="stylesheet" href="<?= base_url('dashboard/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') ?>">
 <link rel="stylesheet" href="<?= base_url('dashboard/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') ?>">
+
+<!-- Sweetalert -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+

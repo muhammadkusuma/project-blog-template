@@ -35,21 +35,26 @@ $routes->set404Override();
 $routes->get('login', 'Masuk::index');
 // dashbor
 $routes->get('dashbor', 'Artikel::index');
-// create post
+// post
 $routes->get('post/create', 'Artikel::create');
-// add post
 $routes->post('post/store', 'Artikel::store');
-// hapus post
 $routes->get('post/destroy/(:num)', 'Artikel::destroy/$1');
-// edit post
 $routes->get('post/edit/(:num)', 'Artikel::edit/$1');
-// update post
 $routes->post('post/update/(:num)', 'Artikel::update/$1');
 
 // detail
 $routes->get('dashbor/detail/(:num)', 'Detail::index/$1');
-// $routes->post('detail/update', 'DetailController::update');
 $routes->post('detail/update/(:num)', 'Detail::update/$1');
+
+
+// link
+$routes->get('dashbor/link', 'Link::index');
+$routes->get('link/create', 'Link::create');
+$routes->post('link/store', 'Link::store');
+$routes->get('link/edit/(:num)', 'Link::edit/$1');
+$routes->post('link/update/(:num)', 'Link::update/$1');
+$routes->get('link/destroy/(:num)', 'Link::destroy/$1');
+
 
 // homepage
 $routes->get('/', 'Menu::index');
@@ -60,7 +65,7 @@ $routes->get('kontak', 'Kontak::index');
 
 
 
-// view berita
+// berita
 $routes->get('(:segment)', 'Menu::view/$1');
 
 

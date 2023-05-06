@@ -35,6 +35,8 @@
 <script src="<?= base_url('dashboard/plugins/codemirror/mode/css/css.js') ?>"></script>
 <script src="<?= base_url('dashboard/plugins/codemirror/mode/xml/xml.js') ?>"></script>
 <script src="<?= base_url('dashboard/plugins/codemirror/mode/htmlmixed/htmlmixed.js') ?>"></script>
+<!-- Sweetalert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
 <!-- Summernote script -->
 <script>
     $(function() {
@@ -152,10 +154,7 @@
         };
         reader.readAsDataURL(event.target.files[0]);
     }
-</script>
-
-<!-- Initialization of datetime picker -->
-<script>
+    // Initialization of datetime picker
     $(function() {
         $('#datetimepicker').datetimepicker({
             icons: {
@@ -174,10 +173,7 @@
             useCurrent: false // Do not set the current date/time as the default value
         });
     });
-</script>
 
-
-<script>
     // Fungsi untuk menampilkan preview gambar saat mengunggah gambar
     function previewImage() {
         var preview = document.querySelector('#preview');
@@ -192,10 +188,8 @@
             reader.readAsDataURL(file);
         }
     }
-</script>
 
-<!-- search konten -->
-<script>
+    // search konten
     $(document).ready(function() {
         $('#searchInput').on('keyup', function() {
             var value = $(this).val().toLowerCase();
@@ -204,10 +198,8 @@
             });
         });
     });
-</script>
 
-<!-- preview detail -->
-<script>
+    // preview detail
     function previewImage(event, previewId) {
         var reader = new FileReader();
         var previewImage = document.getElementById(previewId);
@@ -221,5 +213,66 @@
         if (event.target.files[0]) {
             reader.readAsDataURL(event.target.files[0]);
         }
+    }
+</script>
+
+
+<script>
+    // default jenis link 
+    document.querySelector('form').addEventListener('submit', function(e) {
+        var jenisLink = document.getElementById('jenis_link').value;
+        if (jenisLink === 'default') {
+            e.preventDefault();
+            Swal.fire({
+                icon: 'warning',
+                title: 'Oops...',
+                text: 'Harap pilih Jenis Link',
+            });
+        }
+    });
+
+    // default tipe link
+    document.querySelector('form').addEventListener('submit', function(e) {
+        var tipeLink = document.getElementById('tipe_link').value;
+        if (tipeLink === 'default') {
+            e.preventDefault();
+            Swal.fire({
+                icon: 'warning',
+                title: 'Oops...',
+                text: 'Harap pilih Tipe Link',
+            });
+        }
+    });
+
+
+    // validasi link
+    const linkInput = document.getElementById("link");
+    linkInput.addEventListener("input", () => {
+        const linkValue = linkInput.value.trim();
+        const regex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i; // Regex untuk validasi link
+
+        if (linkValue && !regex.test(linkValue)) {
+            linkInput.setCustomValidity("Input yang dimasukkan bukan link!");
+        } else {
+            linkInput.setCustomValidity("");
+        }
+    });
+
+    //  delete link 
+    function hapusLink(id) {
+        Swal.fire({
+            title: 'Konfirmasi Hapus',
+            text: "Kamu yakin ingin menghapus link ini?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Hapus',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "<?php echo base_url('link/destroy/'); ?>" + id;
+            }
+        })
     }
 </script>
