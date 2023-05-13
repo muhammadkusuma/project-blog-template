@@ -3,8 +3,8 @@
 
 <title>
     <?php
-    if (!empty($artikel->judul)) {
-        echo $artikel->judul . ' | ';
+    if (!empty($artikels->judul)) {
+        echo $artikels->judul . ' | ';
     } elseif (!empty($blog)) {
         echo $blog . ' | ';
     }

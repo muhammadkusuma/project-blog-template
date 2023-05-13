@@ -12,22 +12,25 @@
 
          <nav id="navbar" class="navbar">
              <ul>
-                 <li class="nav-item">
-                     <a class="nav-link" href="#">hhhh</a>
-                 </li>
                  <?php foreach ($menu as $m) : ?>
+                     <?php if ($m['submenu'] == 'tidak') : ?>
+                         <li class="nav-item">
+                             <a class="nav-link" href="<?= base_url($m['menu']) ?>"><?= ucfirst($m['menu']) ?></a>
+                         </li>
+                     <?php endif; ?>
                      <li class="nav-item dropdown">
-
-                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown<?= $m['id_menu'] ?>" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                             <?= $m['menu'] ?>
-                         </a>
-                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown<?= $m['id_menu'] ?>">
-                             <?php foreach ($artikel as $sub) : ?>
-                                 <?php if ($sub['id_menu'] == $m['id_menu']) : ?>
-                                     <li><a class="dropdown-item" href="<?= base_url($sub['slug']) ?>"><?= $sub['judul'] ?></a></li>
-                                 <?php endif ?>
-                             <?php endforeach ?>
-                         </ul>
+                         <?php if ($m['submenu'] == 'ya') : ?>
+                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown<?= $m['id_menu'] ?>" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                 <?= ucfirst($m['menu']) ?>
+                             </a>
+                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown<?= $m['id_menu'] ?>">
+                                 <?php foreach ($artikel as $sub) : ?>
+                                     <?php if ($sub['id_menu'] == $m['id_menu']) : ?>
+                                         <li><a class="dropdown-item" href="<?= base_url($sub['slug']) ?>"><?= $sub['judul'] ?></a></li>
+                                     <?php endif ?>
+                                 <?php endforeach ?>
+                             </ul>
+                         <?php endif ?>
                      </li>
                  <?php endforeach ?>
              </ul>

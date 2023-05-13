@@ -6,7 +6,7 @@
              <div class="row gy-4">
                  <div class="col-lg-5 col-md-12 footer-info">
                      <a href="<?= base_url() ?>" class="logo d-flex align-items-center">
-                         <span> <img src="<?=base_url('uploads/img/')?><?= $detail['0']['logo'] ?>" alt="logo"></span>
+                         <span> <img src="<?= base_url('uploads/img/') ?><?= $detail['0']['logo'] ?>" alt="logo"></span>
                      </a>
                      <p>Laboratorium Program Studi Sistem Informasi Fakultas Sains dan Teknologi Universitas Islam Negeri Sultan
                          Syarif Kasim Riau</p>
@@ -82,4 +82,14 @@
  <script>
      var tahun = new Date().getFullYear();
      document.getElementById("tahun").innerHTML = tahun;
+
+     // search konten
+     $(document).ready(function() {
+         $('#searchInput').on('keyup', function() {
+             var value = $(this).val().toLowerCase();
+             $('#searchTable tr').filter(function() {
+                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+             });
+         });
+     });
  </script>

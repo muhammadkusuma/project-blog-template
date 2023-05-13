@@ -33,8 +33,6 @@ class Menu extends BaseController
         $data['link'] = $this->link->getLink();
         $data['artikel'] = $this->artikel->findAll();
 
-
-
         return view('homepage', $data);
     }
 

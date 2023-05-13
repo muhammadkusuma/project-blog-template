@@ -28,46 +28,37 @@
         <section id="blog" class="blog">
             <div class="container" data-aos="fade-up">
 
-                <div class="row g-5 mx-auto">
+                <div class="row g-5">
 
-                    <div class="col-8 mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
 
-                        <div class="row gy-5 posts-list mx-auto">
+                        <div class="row gy-5 posts-list">
+                            <?php foreach ($artikel as $a) : ?>
+                                <?php if ($a['id_menu'] === null) : ?>
+                                    <div class="col-lg-6 mx-auto">
+                                        <article class="d-flex flex-column">
 
-                            <?php foreach ($artikel as $row) : ?>
-                                <div class="col-6">
-                                    <article class="d-flex flex-column">
+                                            <div class="post-img">
+                                                <img src="<?= base_url() . 'uploads/img/' . $a['gambar']; ?>" alt="" class="img-fluid">
+                                            </div>
 
-                                        <div class="post-img">
-                                            <?php
-                                            if (!empty($row["gambar"])) {
-                                                echo '<img src="' . base_url("uploads/img/$row[gambar]") . '"class="img-fluid">';
-                                            }
-                                            ?>
-                                        </div>
+                                            <h2 class="title">
+                                                <a href="<?= $a['slug']; ?>"><?= $a['judul']; ?></a>
+                                            </h2>
 
-                                        <h2 class="title">
-                                            <a href="blog/view/<?= $row['slug']; ?>"><?= $row['judul']; ?></a>
-                                        </h2>
+                                            <div class="meta-top">
+                                                <ul>
+                                                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="<?= $a['slug'] ?>"><time datetime="<?php echo date('Y-m-d', strtotime($a['created_at'])); ?>"><?php echo date("D, F j, Y", strtotime($a['created_at'])); ?></time></a></li>
+                                                </ul>
+                                            </div>
 
-                                        <div class="meta-top">
-                                            <ul>
-                                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2022-01-01"><?= $row['created_at']; ?></time></a></li>
-                                            </ul>
-                                        </div>
+                                            <div class="read-more mt-auto align-self-end">
+                                                <a href="<?= $a['slug']; ?>">Lihat Lebih Lanjut <i class="bi bi-arrow-right"></i></a>
+                                            </div>
 
-                                        <!-- <div class="content">
-                                            <p>
-                                                Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.
-                                            </p>
-                                        </div> -->
-
-                                        <div class="read-more mt-auto align-self-end">
-                                            <a href="blog/view/<?= $row['slug']; ?>">Read More <i class="bi bi-arrow-right"></i></a>
-                                        </div>
-
-                                    </article>
-                                </div><!-- End post list item -->
+                                        </article>
+                                    </div><!-- End post list item -->
+                                <?php endif; ?>
                             <?php endforeach; ?>
 
                         </div><!-- End blog posts list -->
@@ -82,6 +73,18 @@
 
                     </div>
 
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+
+                        <div class="sidebar ps-lg-4">
+
+                            <div class="sidebar-item search-form">
+                                <h3 class="sidebar-title">Cari Berita</h3>
+                                <input type="text" id="searchInput" class="form-control pd-2">
+                            </div><!-- End sidebar search formn-->
+
+                        </div><!-- End Blog Sidebar -->
+
+                    </div>
 
                 </div>
 

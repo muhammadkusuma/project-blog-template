@@ -40,6 +40,20 @@
 
                 <div class="row gy-5 mx-auto">
                     <!-- Kode Postingan terbaru -->
+                    <?php foreach ($artikel as $art) : ?>
+                        <?php if ($art['id_menu'] === null) : ?>
+                            <div class="col-xl-3 col-md-6 mx-auto" data-aos="fade-up" data-aos-delay="100">
+                                <div class="post-box">
+                                    <div class="post-img"><img src="<?= base_url() . 'uploads/img/' . $art['gambar']; ?>" class="img-fluid" alt=""></div>
+                                    <div class="meta">
+                                        <span class="post-date"><?php echo date("D, F j, Y", strtotime($art['created_at'])); ?></span>
+                                    </div>
+                                    <h3 class="post-title"><?= $art['judul']; ?></h3>
+                                    <a href="<?= $art['slug']; ?>" class="readmore stretched-link"><span>Lihat Lebih Lanjut</span><i class="bi bi-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
                 </div>
 
             </div>
