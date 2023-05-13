@@ -13,7 +13,7 @@
         <!-- ======= Breadcrumbs ======= -->
         <div class="breadcrumbs d-flex align-items-center" style="background-image: url('<?= base_url('assets/img/Perpustakaan-1050x525.jpg') ?>');">
             <div class="container position-relative d-flex flex-column align-items-center">
-                <h2><?= $artikels->judul; ?></h2>
+                <h2><?= ucwords($artikels->judul); ?></h2>
 
             </div>
         </div><!-- End Breadcrumbs -->

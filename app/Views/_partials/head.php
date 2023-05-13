@@ -4,7 +4,7 @@
 <title>
     <?php
     if (!empty($artikels->judul)) {
-        echo $artikels->judul . ' | ';
+        echo ucwords($artikels->judul) . ' | ';
     } elseif (!empty($blog)) {
         echo $blog . ' | ';
     }

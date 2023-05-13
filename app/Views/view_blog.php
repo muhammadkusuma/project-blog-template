@@ -15,10 +15,10 @@
         <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/Perpustakaan-1050x525.jpg');">
             <div class="container position-relative d-flex flex-column align-items-center">
 
-                <h2>Blog</h2>
+                <h2><?= $blog ?></h2>
                 <ol>
                     <li><a href="<?= base_url() ?>">Beranda</a></li>
-                    <li>Blog</li>
+                    <li><?= $blog ?></li>
                 </ol>
 
             </div>
@@ -28,11 +28,11 @@
         <section id="blog" class="blog">
             <div class="container" data-aos="fade-up">
 
-                <div class="row g-5">
+                <div class="row g-5 mx-auto">
 
-                    <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col-lg-8 mx-auto" data-aos="fade-up" data-aos-delay="200">
 
-                        <div class="row gy-5 posts-list">
+                        <div class="row gy-5 posts-list mx-auto">
                             <?php foreach ($artikel as $a) : ?>
                                 <?php if ($a['id_menu'] === null) : ?>
                                     <div class="col-lg-6 mx-auto">
@@ -63,28 +63,8 @@
 
                         </div><!-- End blog posts list -->
 
-                        <div class="blog-pagination">
-                            <ul class="justify-content-center">
-                                <li><a href="#">1</a></li>
-                                <li class="active"><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                            </ul>
-                        </div><!-- End blog pagination -->
-
                     </div>
 
-                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-
-                        <div class="sidebar ps-lg-4">
-
-                            <div class="sidebar-item search-form">
-                                <h3 class="sidebar-title">Cari Berita</h3>
-                                <input type="text" id="searchInput" class="form-control pd-2">
-                            </div><!-- End sidebar search formn-->
-
-                        </div><!-- End Blog Sidebar -->
-
-                    </div>
 
                 </div>
 

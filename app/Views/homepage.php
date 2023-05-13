@@ -40,7 +40,7 @@
 
                 <div class="row gy-5 mx-auto">
                     <!-- Kode Postingan terbaru -->
-                    <?php foreach ($artikel as $art) : ?>
+                    <?php foreach (array_slice($artikel, 0, 10) as $art) : ?>
                         <?php if ($art['id_menu'] === null) : ?>
                             <div class="col-xl-3 col-md-6 mx-auto" data-aos="fade-up" data-aos-delay="100">
                                 <div class="post-box">
@@ -55,6 +55,7 @@
                         <?php endif; ?>
                     <?php endforeach; ?>
                 </div>
+
 
             </div>
         </section><!-- End Recent Blog Posts Section -->

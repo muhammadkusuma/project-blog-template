@@ -60,7 +60,7 @@ $routes->get('link/destroy/(:num)', 'Link::destroy/$1');
 $routes->get('/', 'Menu::index');
 $routes->get('beranda', 'Menu::index');
 $routes->get('blog', 'Blog::index');
-$routes->get('dokumentasi', 'Dokumentasi::index');
+// $routes->get('dokumentasi', 'Dokumentasi::index');
 $routes->get('unduh', 'Unduh::index');
 $routes->get('kontak', 'Kontak::index');
 

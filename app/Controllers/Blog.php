@@ -33,15 +33,6 @@ class Blog extends BaseController
         $data['artikel'] = $this->artikel->findAll();
         $data['blog'] = 'Blog';
 
-        // $model = new ModelsBlog();
-        // if (!$this->validate([])) {
-        //     $data['validation'] = $this->validator;
-        //     $data['artikel'] = $model->where('id_menu', null)->findAll();
-        //     return view('view_blog', $data);
-        // } else {
-        //     $data['artikel'] = $model->where('id_menu', null)->findAll();
-        //     return view('view_blog', $data);
-        // }
         return view('view_blog', $data);
     }
 }
