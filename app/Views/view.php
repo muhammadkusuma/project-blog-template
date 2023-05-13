@@ -13,7 +13,7 @@
         <!-- ======= Breadcrumbs ======= -->
         <div class="breadcrumbs d-flex align-items-center" style="background-image: url('<?= base_url('assets/img/Perpustakaan-1050x525.jpg') ?>');">
             <div class="container position-relative d-flex flex-column align-items-center">
-                <h2><?= $artikel->judul; ?></h2>
+                <h2><?= $artikels->judul; ?></h2>
 
             </div>
         </div><!-- End Breadcrumbs -->
@@ -30,8 +30,8 @@
 
                             <div class="post-img mx-auto">
                                 <?php
-                                if (!empty($artikel->gambar)) {
-                                    echo '<img src="' . base_url("uploads/img/$artikel->gambar") . '" class="img-fluid">';
+                                if (!empty($artikels->gambar)) {
+                                    echo '<img src="' . base_url("uploads/img/$artikels->gambar") . '" class="img-fluid">';
                                 }
                                 ?>
                             </div>
@@ -39,12 +39,12 @@
 
                             <div class="meta-top">
                                 <ul>
-                                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time datetime="2020-01-01"><?= $artikel->created_at; ?></time></a></li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time datetime="2020-01-01"><?= $artikels->created_at; ?></time></a></li>
                                 </ul>
                             </div><!-- End meta top -->
 
                             <div class="content">
-                                <?php echo $artikel->isi; ?>
+                                <?php echo $artikels->isi; ?>
 
                             </div><!-- End post content -->
 

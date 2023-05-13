@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class ArtikelModel extends Model
 {
     protected $table = 'artikel';
-    protected $allowedFields = ['judul', 'slug', 'isi', 'gambar','created_at'];
+    protected $allowedFields = ['judul', 'slug', 'isi', 'gambar', 'created_at'];
     protected $useTimestamps = true;
     // protected $createdField = 'created_at';
 
@@ -17,4 +17,10 @@ class ArtikelModel extends Model
     ];
 
     protected $skipValidation = false;
+
+    public function PilihBlog($slug)
+    {
+        $query = $this->getWhere(['slug' => $slug]);
+        return $query;
+    }
 }

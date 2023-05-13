@@ -39,24 +39,7 @@
                 </div>
 
                 <div class="row gy-5 mx-auto">
-                    <?php foreach (array_slice($artikel, 0, 8) as $row) : ?>
-                        <div class="col-xl-3 col-md-6 mx-auto" data-aos="fade-up" data-aos-delay="100">
-                            <div class="post-box">
-                                <div class="post-img">
-                                    <?php
-                                    if (!empty($row["gambar"])) {
-                                        echo '<img src="' . base_url("uploads/img/$row[gambar]") . '"class="img-fluid">';
-                                    }
-                                    ?>
-                                </div>
-                                <div class="meta">
-                                    <span class="post-date"><?= $row['created_at']; ?></span>
-                                </div>
-                                <h3 class="post-title"><?= $row['judul']; ?></h3>
-                                <a href="blog/view/<?= $row['slug']; ?>" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
+                    <!-- Kode Postingan terbaru -->
                 </div>
 
             </div>

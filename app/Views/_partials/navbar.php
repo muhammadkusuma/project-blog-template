@@ -3,7 +3,7 @@
      <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
          <a href="index.html" class="logo d-flex align-items-center">
-             <img src="<?=base_url('uploads/img/')?><?= $detail['0']['logo'] ?>" alt="logo">
+             <img src="<?= base_url('uploads/img/') ?><?= $detail['0']['logo'] ?>" alt="logo">
              <!-- <h1 class="d-flex align-items-center"><?= $detail['0']['nama_website'] ?></h1> -->
          </a>
 
@@ -12,29 +12,24 @@
 
          <nav id="navbar" class="navbar">
              <ul>
-                 <li><a href="<?= base_url() ?>">Beranda</a></li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="#">hhhh</a>
+                 </li>
                  <?php foreach ($menu as $m) : ?>
-                     <?php if ($m['submenu']) : ?>
-                         <li class="nav-item dropdown">
-                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                 <?= $m['menu'] ?>
-                             </a>
-                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                 <?php foreach ($m['submenu'] as $sub) : ?>
+                     <li class="nav-item dropdown">
+
+                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown<?= $m['id_menu'] ?>" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                             <?= $m['menu'] ?>
+                         </a>
+                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown<?= $m['id_menu'] ?>">
+                             <?php foreach ($artikel as $sub) : ?>
+                                 <?php if ($sub['id_menu'] == $m['id_menu']) : ?>
                                      <li><a class="dropdown-item" href="<?= base_url($sub['slug']) ?>"><?= $sub['judul'] ?></a></li>
-                                 <?php endforeach ?>
-                             </ul>
-                         </li>
-                     <?php else : ?>
-                         <li class="nav-item">
-                             <a class="nav-link" href="#"><?= $m['menu'] ?></a>
-                         </li>
-                     <?php endif ?>
+                                 <?php endif ?>
+                             <?php endforeach ?>
+                         </ul>
+                     </li>
                  <?php endforeach ?>
-                 <li><a href="<?= base_url('blog') ?>">Blog</a></li>
-                 <li><a href="<?= base_url('dokumentasi') ?>">Dokumentasi</a></li>
-                 <li><a href="<?= base_url('unduh') ?>">Unduh</a></li>
-                 <li><a href="<?= base_url('kontak') ?>">Kontak</a></li>
              </ul>
          </nav><!-- .navbar -->
 
