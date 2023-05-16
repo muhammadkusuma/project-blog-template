@@ -83,7 +83,7 @@
                                                 <td><?php echo $row['updated_at']; ?></td>
                                                 <td>
                                                     <a href="<?php echo base_url('post/edit/' . $row['id']); ?>" class="btn btn-primary btn-sm">Ubah</a>
-                                                    <a href="<?php echo base_url('post/destroy/' . $row['id']); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Kamu yakin ingin menghapus <?= $row['judul']; ?> ?');">Hapus</a>
+                                                    <a href="<?php echo base_url('post/destroy/' . $row['id']); ?>" class="btn btn-danger btn-sm delete-post" data-judul="<?= $row['judul']; ?>">Hapus</a>
                                                 </td>
                                             </tr>
                                         <?php } ?>

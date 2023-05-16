@@ -368,3 +368,29 @@
         }
     }
 </script>
+
+<!-- Alert Hapus Post -->
+<script>
+    // Tambahkan event listener pada elemen dengan class "delete-post"
+    var deleteButtons = document.getElementsByClassName('delete-post');
+    Array.prototype.forEach.call(deleteButtons, function(button) {
+        button.addEventListener('click', function(event) {
+            event.preventDefault(); // Mencegah aksi default link
+
+            var judul = this.getAttribute('data-judul');
+
+            Swal.fire({
+                title: 'Konfirmasi',
+                text: "Kamu yakin ingin menghapus " + judul + " ?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Hapus',
+                cancelButtonText: 'Batal',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = this.getAttribute('href');
+                }
+            });
+        });
+    });
+</script>
