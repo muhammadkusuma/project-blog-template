@@ -51,6 +51,17 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
+                        <?php if (session()->getFlashdata('success')) { ?>
+                            <div class="alert alert-success">
+                                <?php echo session()->getFlashdata('success'); ?>
+                            </div>
+                        <?php } ?>
+
+                        <?php if (session()->getFlashdata('error')) { ?>
+                            <div class="alert alert-danger">
+                                <?php echo session()->getFlashdata('error'); ?>
+                            </div>
+                        <?php } ?>
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
