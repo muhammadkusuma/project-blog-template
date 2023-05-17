@@ -46,6 +46,9 @@ $routes->post('post/update/(:num)', 'Artikel::update/$1');
 $routes->get('dashbor/detail/(:num)', 'Detail::index/$1');
 $routes->post('detail/update/(:num)', 'Detail::update/$1');
 
+// menu
+$routes->get('dashbor/menu', 'MenuPage::index');
+
 
 // link
 $routes->get('dashbor/link', 'Link::index');

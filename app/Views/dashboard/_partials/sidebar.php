@@ -37,10 +37,10 @@
                     </a>
                 </li> -->
                 <li class="nav-item ">
-                    <a href="<?= base_url('dashbor/page') ?>" class="nav-link ">
+                    <a href="<?= base_url('dashbor/menu') ?>" class="nav-link ">
                         <i class="nav-icon fas fa-bars"></i>
                         <p>
-                            Page
+                            Menu
                         </p>
                     </a>
                 </li>
