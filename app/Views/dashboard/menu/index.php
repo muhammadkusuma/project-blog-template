@@ -56,7 +56,7 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="submenu">Termasuk Sub Menu</label>
-                                        <select name="submenu" id="submenu" class="form-control" >
+                                        <select name="submenu" id="submenu" class="form-control">
                                             <option value="default">Pilih</option>
                                             <option value="ya">Ya</option>
                                             <option value="tidak">Tidak</option>

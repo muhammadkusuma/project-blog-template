@@ -422,21 +422,45 @@
     function validateInputMenu(input) {
         // Hapus angka, link, dan simbol
         input.value = input.value.replace(/[0-9]|http(s)?:\/\/[^\s]+|\W/g, '');
+        // Jika input tidak diisi
+        if (input.value.trim() === '') {
+            // Munculkan SweetAlert2
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Nama Menu harus diisi',
+                confirmButtonText: 'OK'
+            });
+        }
     }
+
     // Tangkap elemen form dan tombol submit
     const form = document.querySelector('form');
     const submitButton = document.querySelector('button[type="submit"]');
 
     // Tambahkan event listener pada tombol submit
     submitButton.addEventListener('click', function(event) {
-        // Periksa apakah nilai submenu masih default
+        // Periksa apakah nilai menu dan submenu masih default
+        const menuValue = document.querySelector('#menu').value;
         const submenuValue = document.querySelector('#submenu').value;
+
+        let errorMessages = [];
+
+        if (menuValue.trim() === '') {
+            errorMessages.push('Nama Menu harus diisi');
+        }
+
         if (submenuValue === 'default') {
-            // Tampilkan SweetAlert dengan pesan peringatan
+            errorMessages.push('Silakan pilih opsi yang valid untuk submenu');
+        }
+
+        if (errorMessages.length > 0) {
+            // Munculkan SweetAlert2 dengan pesan peringatan
             Swal.fire({
                 icon: 'warning',
-                title: 'Pilihan Default',
-                text: 'Silakan pilih opsi yang valid untuk submenu.',
+                title: 'Error',
+                html: errorMessages.join('<br>'),
+                confirmButtonText: 'OK'
             });
 
             // Mencegah pengiriman form
