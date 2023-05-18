@@ -200,18 +200,20 @@
     });
 
     // preview detail
-    function previewImage(event, previewId) {
-        var reader = new FileReader();
-        var previewImage = document.getElementById(previewId);
+    function previewImageDetail(event, previewId) {
+        var input = event.target;
+        var preview = document.getElementById(previewId);
 
-        reader.onload = function() {
-            if (reader.readyState == 2) {
-                previewImage.src = reader.result;
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
             }
-        }
 
-        if (event.target.files[0]) {
-            reader.readAsDataURL(event.target.files[0]);
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            preview.src = "";
         }
     }
 </script>

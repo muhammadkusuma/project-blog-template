@@ -72,19 +72,28 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="favicon">Favicon</label>
-                                        <input type="file" class="form-control-file" id="favicon" name="favicon" onchange="previewImage(event, 'favicon-preview')" required>
+                                        <input type="file" class="form-control-file" id="favicon" name="favicon" onchange="previewImageDetail(event, 'favicon-preview')" required>
                                     </div>
-                                    <img id="favicon-preview" src="uploads/img/<?= $detail['0']['favicon']; ?>" alt="Preview Favicon" style="max-width: 100px; max-height: 100px;">
+                                    <?php if (!empty($detail['0']['favicon'])) : ?>
+                                        <img id="favicon-preview" src="<?= base_url('uploads/img/') ?><?= $detail['0']['favicon'] ?>" alt="Preview Favicon" style="max-width: 100px; max-height: 100px;">
+                                    <?php else : ?>
+                                        <img id="favicon-preview" alt="Preview Favicon" style="max-width: 100px; max-height: 100px;">
+                                    <?php endif; ?>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="logo">Logo</label>
-                                        <input type="file" class="form-control-file" id="logo" name="logo" onchange="previewImage(event, 'logo-preview')" required>
+                                        <input type="file" class="form-control-file" id="logo" name="logo" onchange="previewImageDetail(event, 'logo-preview')" required>
                                     </div>
-                                    <img id="logo-preview" src="uploads/img/<?= $detail['0']['logo']; ?>" alt="Preview Logo" style="max-width: 100px; max-height: 100px;">
+                                    <?php if (!empty($detail['0']['logo'])) : ?>
+                                        <img id="logo-preview" src="<?= base_url('uploads/img/') ?><?= $detail['0']['logo'] ?>" alt="Preview Logo" style="max-width: 100px; max-height: 100px;">
+                                    <?php else : ?>
+                                        <img id="logo-preview" alt="Preview Logo" style="max-width: 100px; max-height: 100px;">
+                                    <?php endif; ?>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Update</button>
+
+                            <button type="submit" class="btn btn-primary mt-2">Perbarui</button>
                         </form>
 
                     </div>
