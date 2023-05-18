@@ -416,3 +416,31 @@
         });
     }
 </script>
+
+<!-- Validasi Menu -->
+<script>
+    function validateInputMenu(input) {
+        // Hapus angka, link, dan simbol
+        input.value = input.value.replace(/[0-9]|http(s)?:\/\/[^\s]+|\W/g, '');
+    }
+    // Tangkap elemen form dan tombol submit
+    const form = document.querySelector('form');
+    const submitButton = document.querySelector('button[type="submit"]');
+
+    // Tambahkan event listener pada tombol submit
+    submitButton.addEventListener('click', function(event) {
+        // Periksa apakah nilai submenu masih default
+        const submenuValue = document.querySelector('#submenu').value;
+        if (submenuValue === 'default') {
+            // Tampilkan SweetAlert dengan pesan peringatan
+            Swal.fire({
+                icon: 'warning',
+                title: 'Pilihan Default',
+                text: 'Silakan pilih opsi yang valid untuk submenu.',
+            });
+
+            // Mencegah pengiriman form
+            event.preventDefault();
+        }
+    });
+</script>

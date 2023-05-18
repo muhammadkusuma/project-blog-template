@@ -50,13 +50,13 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="menu">Nama Menu</label>
-                                        <input type="text" name="menu" id="menu" class="form-control" required>
+                                        <input type="text" name="menu" id="menu" class="form-control" required oninput="validateInputMenu(this)">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="submenu">Termasuk Sub Menu</label>
-                                        <select name="submenu" id="submenu" class="form-control">
+                                        <select name="submenu" id="submenu" class="form-control" >
                                             <option value="default">Pilih</option>
                                             <option value="ya">Ya</option>
                                             <option value="tidak">Tidak</option>
