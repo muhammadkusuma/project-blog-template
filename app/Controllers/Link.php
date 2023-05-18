@@ -45,6 +45,29 @@ class Link extends BaseController
 
     public function store()
     {
+        $validationRules = [
+            'tipe_link' => 'required',
+            'jenis_link' => 'required',
+            'link' => 'required|valid_url',
+            'nama_link' => 'required'
+        ];
+
+        $validationMessages = [
+            'tipe_link.required' => 'The tipe link field is required.',
+            'jenis_link.required' => 'The jenis link field is required.',
+            'link.required' => 'The link field is required.',
+            'link.valid_url' => 'The link must be a valid URL.',
+            'nama_link.required' => 'The nama link field is required.'
+        ];
+
+        $isValid = $this->validate($validationRules, $validationMessages);
+
+        if (!$isValid) {
+            $errors = $this->validator->getErrors();
+            session()->setFlashdata('error', $errors);
+            return redirect()->back()->withInput();
+        }
+
         $tipeLink = $this->request->getPost('tipe_link');
         $jenisLink = $this->request->getPost('jenis_link');
         $link = $this->request->getPost('link');
@@ -67,6 +90,7 @@ class Link extends BaseController
             return redirect()->back();
         }
     }
+
 
     public function edit($id)
     {
@@ -95,6 +119,28 @@ class Link extends BaseController
             return redirect()->back();
         }
 
+        $validationRules = [
+            'tipe_link' => 'required',
+            'jenis_link' => 'required',
+            'link' => 'required|valid_url',
+            'nama_link' => 'required'
+        ];
+
+        $validationMessages = [
+            'tipe_link.required' => 'The type of link is required.',
+            'jenis_link.required' => 'The type of link is required.',
+            'link.required' => 'The link URL is required.',
+            'link.valid_url' => 'The link URL must be a valid URL.',
+            'nama_link.required' => 'The link name is required.'
+        ];
+
+        $isValid = $this->validate($validationRules, $validationMessages);
+
+        if (!$isValid) {
+            session()->setFlashdata('error', $this->validator->getErrors());
+            return redirect()->back()->withInput();
+        }
+
         $tipeLink = $this->request->getPost('tipe_link');
         $jenisLink = $this->request->getPost('jenis_link');
         $linkUrl = $this->request->getPost('link');
@@ -117,6 +163,7 @@ class Link extends BaseController
             return redirect()->back();
         }
     }
+
 
     public function destroy($id)
     {
