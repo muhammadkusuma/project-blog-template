@@ -7,8 +7,8 @@ use CodeIgniter\Model;
 class MenuModel extends Model
 {
     protected $table = 'menu';
-    protected $primaryKey = 'id';
-    protected $allowedFields = ['nama', 'slug', 'parent_id'];
+    protected $primaryKey = 'id_menu';
+    protected $allowedFields = ['menu','submenu'];
 
     public function getMenu()
     {

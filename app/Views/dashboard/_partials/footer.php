@@ -394,3 +394,25 @@
         });
     });
 </script>
+
+<!-- Alert Hapus Menu -->
+<script>
+    function confirmDeleteMenu(event) {
+        event.preventDefault();
+        var judul = event.target.getAttribute("data-judul");
+        Swal.fire({
+            title: 'Hapus Menu',
+            text: 'Apakah Anda yakin ingin menghapus menu ' + judul + '?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Hapus',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = event.target.getAttribute("href");
+            }
+        });
+    }
+</script>

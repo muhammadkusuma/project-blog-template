@@ -34,18 +34,29 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="<?= base_url('link/store'); ?>" method="post" enctype="multipart/form-data">
+                        <?php if (session()->getFlashdata('success')) { ?>
+                            <div class="alert alert-success">
+                                <?php echo session()->getFlashdata('success'); ?>
+                            </div>
+                        <?php } ?>
+
+                        <?php if (session()->getFlashdata('error')) { ?>
+                            <div class="alert alert-danger">
+                                <?php echo session()->getFlashdata('error'); ?>
+                            </div>
+                        <?php } ?>
+                        <form action="<?= base_url('menu/store'); ?>" method="post" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
-                                        <label for="nama_menu">Nama Menu</label>
-                                        <input type="text" name="nama_menu" id="nama_menu" class="form-control" required>
+                                        <label for="menu">Nama Menu</label>
+                                        <input type="text" name="menu" id="menu" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
-                                        <label for="sub_menu">Termasuk Sub Menu</label>
-                                        <select name="sub_menu" id="sub_menu" class="form-control">
+                                        <label for="submenu">Termasuk Sub Menu</label>
+                                        <select name="submenu" id="submenu" class="form-control">
                                             <option value="default">Pilih</option>
                                             <option value="ya">Ya</option>
                                             <option value="tidak">Tidak</option>
@@ -55,8 +66,7 @@
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Simpan</button>
-                                <a href="<?= base_url('dashbor/link') ?>" class="btn btn-link">Kembali</a>
+                                <button type="submit" class="btn btn-primary">Tambah Menu</button>
                             </div>
                         </form>
                     </div>
@@ -72,20 +82,15 @@
                                 </tr>
                             </thead>
                             <tbody id="searchTable">
-                                <?php if (!empty($posts) && is_array($posts)) { ?>
-                                    <?php foreach ($posts as $row) { ?>
-                                        <?php if ($row['id_menu'] === null) { ?>
-                                            <tr>
-                                                <td><?php echo $row['judul']; ?></td>
-                                                <td><?php echo $row['slug']; ?></td>
-                                                <td><?php echo $row['created_at']; ?></td>
-                                                <td><?php echo $row['updated_at']; ?></td>
-                                                <td>
-                                                    <a href="<?php echo base_url('post/edit/' . $row['id']); ?>" class="btn btn-primary btn-sm">Ubah</a>
-                                                    <a href="<?php echo base_url('post/destroy/' . $row['id']); ?>" class="btn btn-danger btn-sm delete-post" data-judul="<?= $row['judul']; ?>">Hapus</a>
-                                                </td>
-                                            </tr>
-                                        <?php } ?>
+                                <?php if (!empty($menu) && is_array($menu)) { ?>
+                                    <?php foreach ($menu as $row) { ?>
+                                        <tr>
+                                            <td><?php echo ucfirst($row['menu']); ?></td>
+                                            <td><?php echo ucfirst($row['submenu']); ?></td>
+                                            <td>
+                                                <a href="<?php echo base_url('menu/destroy/' . $row['id_menu']); ?>" class="btn btn-danger btn-sm delete-menu" data-judul="<?= ucfirst($row['menu']); ?>" onclick="confirmDeleteMenu(event)">Hapus</a>
+                                            </td>
+                                        </tr>
                                     <?php } ?>
                                 <?php } else { ?>
                                     <tr>
