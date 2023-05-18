@@ -61,17 +61,20 @@ class MenuPage extends BaseController
         $menu = $this->request->getPost('menu');
         $submenu = $this->request->getPost('submenu');
 
-        // Check if data is empty
+        // Validasi jika data kosong
         if (empty($menu) || empty($submenu)) {
             session()->setFlashdata('error', 'Please fill in all the fields.');
             return redirect()->back();
         }
 
+        // Hapus angka, link, dan simbol pada nama menu dan submenu
+        $menu = preg_replace('/[0-9]|http(s)?:\/\/[^\s]+|\W/', '', $menu);
+        $submenu = preg_replace('/[0-9]|http(s)?:\/\/[^\s]+|\W/', '', $submenu);
+
         $post = [
             'menu' => $menu,
             'submenu' => $submenu,
         ];
-        
 
         $save = $this->model->save($post);
 
