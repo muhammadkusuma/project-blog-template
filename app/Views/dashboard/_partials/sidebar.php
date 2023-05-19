@@ -36,14 +36,14 @@
                         </p>
                     </a>
                 </li> -->
-                <li class="nav-item ">
+                <!-- <li class="nav-item ">
                     <a href="<?= base_url('dashbor/menu') ?>" class="nav-link ">
                         <i class="nav-icon fas fa-bars"></i>
                         <p>
                             Menu
                         </p>
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-item ">
                     <a href="<?= base_url('dashbor/link') ?>" class="nav-link ">
                         <i class="nav-icon fas fa-link"></i>
@@ -85,14 +85,14 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item ">
+                <!-- <li class="nav-item ">
                     <a href="<?= base_url('dashbor/akun') ?>" class="nav-link ">
                         <i class="nav-icon fas fa-user-alt"></i>
                         <p>
                             Akun
                         </p>
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-item ">
                     <a href="#" class="nav-link ">
                         <i class="nav-icon fas fa-sign-out-alt"></i>

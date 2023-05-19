@@ -47,9 +47,9 @@ $routes->get('dashbor/detail/(:num)', 'Detail::index/$1');
 $routes->post('detail/update/(:num)', 'Detail::update/$1');
 
 // menu
-$routes->get('dashbor/menu', 'MenuPage::index');
-$routes->get('menu/destroy/(:num)', 'MenuPage::destroy/$1');
-$routes->post('menu/store', 'MenuPage::store');
+// $routes->get('dashbor/menu', 'MenuPage::index');
+// $routes->get('menu/destroy/(:num)', 'MenuPage::destroy/$1');
+// $routes->post('menu/store', 'MenuPage::store');
 
 // link
 $routes->get('dashbor/link', 'Link::index');
