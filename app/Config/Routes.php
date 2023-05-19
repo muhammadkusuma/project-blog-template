@@ -82,6 +82,12 @@ $routes->get('blog/form_edit/(:num)', 'Home::form_edit/$1');
 $routes->post('blog/edit', 'Home::edit');
 $routes->get('blog/hapus/(:num)', 'Blog::hapus/$1');
 
+
+// auth
+$routes->get('auth/google', 'Auth::googleLogin');
+$routes->get('auth/google/callback', 'Auth::googleCallback');
+
+
 // blog
 // $routes->get('/', 'Home::index');
 // $routes->get('blog', 'Blog::index');
