@@ -34,10 +34,26 @@
                 <div class="card">
                     <div class="card-body">
                         <form action="<?= base_url('post/store'); ?>" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
-                            <div class="form-group">
-                                <label for="judul">Judul</label>
-                                <input type="text" name="judul" class="form-control" required>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="judul">Judul</label>
+                                        <input type="text" name="judul" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="menu">Menu</label>
+                                        <select class="form-control" name="menu" >
+                                            <option value="">Pilih Menu</option>
+                                            <?php foreach ($menus as $menu) : ?>
+                                                <option value="<?php echo $menu['id_menu']; ?>"><?php echo ucfirst($menu['menu']) . $menu['id_menu']; ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
+
                             <div class="form-group">
                                 <label for="isi">Isi</label>
                                 <textarea name="isi" id="post_content" class="form-control" required></textarea>

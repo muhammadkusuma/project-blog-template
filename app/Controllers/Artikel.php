@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\ArtikelModel;
 use App\Models\DetailModel;
+use App\Models\MenuModel;
 
 class Artikel extends BaseController
 {
@@ -36,9 +37,11 @@ class Artikel extends BaseController
     public function create()
     {
         $detailweb = new DetailModel(); // definisikan variabel $detailweb
+        $menuModel = new MenuModel();
         $data = [
             'detail' => $detailweb->detail(),
-            'blog' => 'Buat Konten Baru'
+            'blog' => 'Buat Konten Baru',
+            'menus' => $menuModel->getMenu(), // Mendapatkan data menu dari model
         ];
 
         return view('dashboard/posts/create', $data);
