@@ -33,7 +33,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="<?= base_url('post/store'); ?>" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+                        <form action="<?= base_url('post/store'); ?>" method="post" enctype="multipart/form-data" onsubmit="return validateFormTest()">
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
@@ -44,7 +44,7 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="menu">Menu</label>
-                                        <select class="form-control" name="menu" >
+                                        <select class="form-control" name="menu" required>
                                             <option value="">Pilih Menu</option>
                                             <?php foreach ($menus as $menu) : ?>
                                                 <option value="<?php echo $menu['id_menu']; ?>"><?php echo ucfirst($menu['menu']) . $menu['id_menu']; ?></option>
@@ -87,10 +87,7 @@
                                 <a href="<?= base_url('dashbor') ?>" class="btn btn-link">Kembali</a>
                             </div>
                         </form>
-
-
                     </div>
-
                 </div>
             </div>
         </section>

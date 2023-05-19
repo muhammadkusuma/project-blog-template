@@ -49,6 +49,18 @@ class Artikel extends BaseController
 
     public function store()
     {
+        $this->validate([
+            'judul' => 'required',
+            'isi' => 'required',
+            'terbit' => 'required',
+            'gambar' => [
+                'uploaded[gambar]',
+                'mime_in[gambar,image/jpg,image/jpeg,image/png]',
+                'max_size[gambar,1024]' // Ubah angka sesuai dengan ukuran maksimum file dalam kilobita (KB)
+            ],
+            'menu' => 'required'
+        ]);
+
         $judul = $this->request->getPost('judul');
         $isi = $this->request->getPost('isi');
         $terbit = $this->request->getPost('terbit');
@@ -82,7 +94,6 @@ class Artikel extends BaseController
             return redirect()->back();
         }
     }
-
 
     public function edit($id)
     {
