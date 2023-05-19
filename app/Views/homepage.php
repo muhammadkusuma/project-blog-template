@@ -39,9 +39,22 @@
                 </div>
 
                 <div class="row gy-5 mx-auto">
+                    <?php foreach ($menu as $item) : ?>
+                        <?php
+                        $blogMenuId = '';
+
+                        foreach ($menu as $item) {
+                            if ($item['menu'] === 'blog') {
+                                $blogMenuId = $item['id_menu'];
+                                break; // Keluar dari perulangan jika sudah ditemukan menu 'blog'
+                            }
+                        }
+                        ?>
+                    <?php endforeach; ?>
                     <!-- Kode Postingan terbaru -->
                     <?php foreach (array_slice($artikel, 0, 10) as $art) : ?>
-                        <?php if ($art['id_menu'] === null) : ?>
+
+                        <?php if ($art['id_menu'] ===  $blogMenuId) : ?>
                             <div class="col-xl-3 col-md-6 mx-auto" data-aos="fade-up" data-aos-delay="100">
                                 <div class="post-box">
                                     <div class="post-img"><img src="<?= base_url() . 'uploads/img/' . $art['gambar']; ?>" class="img-fluid" alt=""></div>
@@ -53,6 +66,7 @@
                                 </div>
                             </div>
                         <?php endif; ?>
+
                     <?php endforeach; ?>
                 </div>
 

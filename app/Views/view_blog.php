@@ -33,8 +33,20 @@
                     <div class="col-lg-8 mx-auto" data-aos="fade-up" data-aos-delay="200">
 
                         <div class="row gy-5 posts-list mx-auto">
+                            <?php foreach ($menu as $item) : ?>
+                                <?php
+                                $blogMenuId = '';
+
+                                foreach ($menu as $item) {
+                                    if ($item['menu'] === 'blog') {
+                                        $blogMenuId = $item['id_menu'];
+                                        break; // Keluar dari perulangan jika sudah ditemukan menu 'blog'
+                                    }
+                                }
+                                ?>
+                            <?php endforeach; ?>
                             <?php foreach ($artikel as $a) : ?>
-                                <?php if ($a['id_menu'] === null) : ?>
+                                <?php if ($a['id_menu'] ===  $blogMenuId) : ?>
                                     <div class="col-lg-6 mx-auto">
                                         <article class="d-flex flex-column">
 

@@ -47,7 +47,7 @@
                                         <select class="form-control" name="menu" required>
                                             <option value="">Pilih Menu</option>
                                             <?php foreach ($menus as $menu) : ?>
-                                                <option value="<?php echo $menu['id_menu']; ?>"><?php echo ucfirst($menu['menu']) . $menu['id_menu']; ?></option>
+                                                <option value="<?php echo $menu['id_menu']; ?>"><?php echo ucfirst($menu['menu']); ?></option>
                                             <?php endforeach; ?>
                                         </select>
                                     </div>
