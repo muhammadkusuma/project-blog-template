@@ -53,15 +53,17 @@ class Artikel extends BaseController
         $isi = $this->request->getPost('isi');
         $terbit = $this->request->getPost('terbit');
         $gambar = $this->request->getFile('gambar');
+        $menu = $this->request->getPost('menu');
 
         // Konversi format datetime ke format yang diterima oleh basis data
         $terbit = date('Y-m-d H:i:s', strtotime($terbit));
 
         $post = [
+            'id_menu' => $menu,
             'judul' => $judul,
             'isi' => $isi,
             'created_at' => $terbit,
-            'slug' => url_title(strtolower($judul)),
+            'slug' => url_title(strtolower($judul))
         ];
 
         if ($gambar && $gambar->isValid()) {

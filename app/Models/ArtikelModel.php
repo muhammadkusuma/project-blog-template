@@ -7,16 +7,16 @@ use CodeIgniter\Model;
 class ArtikelModel extends Model
 {
     protected $table = 'artikel';
-    protected $allowedFields = ['judul', 'slug', 'isi', 'gambar', 'created_at'];
+    protected $allowedFields = ['id_menu', 'judul', 'slug', 'isi', 'gambar', 'created_at'];
     protected $useTimestamps = true;
     // protected $createdField = 'created_at';
 
-    protected $validationRules = [
-        'judul' => 'required|min_length[10]|max_length[100]',
-        'isi' => 'required'
-    ];
+    // protected $validationRules = [
+    //     'judul' => 'required|min_length[10]|max_length[100]',
+    //     'isi' => 'required'
+    // ];
 
-    protected $skipValidation = false;
+    // protected $skipValidation = false;
 
     public function PilihBlog($slug)
     {
