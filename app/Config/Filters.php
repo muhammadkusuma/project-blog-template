@@ -21,6 +21,8 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        // Tambahkan baris berikut
+        'auth' => \App\Filters\AuthFilter::class,
     ];
 
     /**
@@ -60,5 +62,7 @@ class Filters extends BaseConfig
      * Example:
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
-    public array $filters = [];
+    public array $filters = [
+        'auth' => ['before' => ['blog/form', 'blog/simpan', 'blog/form_edit/(:num)', 'blog/edit', 'blog/hapus/(:num)', 'dashbor/link', 'link/create', 'link/store', 'link/edit/(:num)', 'link/update/(:num)', 'link/destroy/(:num)', 'dashbor/detail/(:num)', 'detail/update/(:num)', 'dashbor', 'post/create', 'post/store', 'post/destroy/(:num)', 'post/edit/(:num)', 'post/update/(:num)']],
+    ];
 }
