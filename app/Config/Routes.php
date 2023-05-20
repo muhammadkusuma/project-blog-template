@@ -86,6 +86,7 @@ $routes->get('blog/hapus/(:num)', 'Blog::hapus/$1');
 // auth
 $routes->get('auth/google', 'Auth::googleLogin');
 $routes->get('auth/google/callback', 'Auth::googleCallback');
+$routes->get('auth/logout', 'Auth::logout', ['as' => 'logout']);
 
 
 // blog

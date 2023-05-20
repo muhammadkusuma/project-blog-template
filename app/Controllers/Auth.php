@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
-use Google\Client as Google_Client; 
+use App\Models\UserModel;
 
 class Auth extends Controller
 {
@@ -46,8 +46,30 @@ class Auth extends Controller
             $google_oauth = new \Google_Service_Oauth2($client);
             $google_account_info = $google_oauth->userinfo->get();
 
-            // Lakukan sesuatu dengan data akun Google yang diterima
-            var_dump($google_account_info);
+            // Mengecek apakah email ada dalam database
+            $userModel = new UserModel();
+            $user = $userModel->getUserByEmail($google_account_info->email);
+
+            if ($user) {
+                // Email ditemukan dalam database, lakukan tindakan sesuai kebutuhan
+                // Contoh: Simpan informasi ke sesi dan lanjutkan ke dashboard
+                session()->set([
+                    'nama' => $google_account_info->name,
+                    'email' => $google_account_info->email
+                ]);
+
+                return redirect()->to('/dashbor');
+            } else {
+                // Email tidak ditemukan dalam database, lakukan tindakan sesuai kebutuhan
+                // Contoh: Tampilkan pesan kesalahan atau mungkin daftarkan pengguna baru
+                return redirect()->to('/');
+            }
         }
+    }
+
+    public function logout()
+    {
+        session()->destroy();
+        return redirect()->to('/');
     }
 }
