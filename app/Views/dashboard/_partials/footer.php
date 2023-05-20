@@ -470,3 +470,23 @@
         }
     });
 </script>
+
+<!-- Users -->
+<script>
+    function hapusUsers(id) {
+        Swal.fire({
+            title: 'Konfirmasi Hapus',
+            text: "Kamu yakin ingin menghapus user ini?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Hapus',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "<?= base_url('users/destroy/'); ?>" + id;
+            }
+        });
+    }
+</script>

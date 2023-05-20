@@ -68,7 +68,11 @@ $routes->get('blog', 'Blog::index');
 $routes->get('unduh', 'Unduh::index');
 $routes->get('kontak', 'Kontak::index');
 
-
+// users
+$routes->get('dashbor/users', 'Users::index');
+$routes->get('users/create', 'Users::create');
+$routes->post('users/store', 'Users::store');
+$routes->get('users/destroy/(:segment)', 'Users::destroy/$1');
 
 // berita
 $routes->get('(:segment)', 'Menu::view/$1');
