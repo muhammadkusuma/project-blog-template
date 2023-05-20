@@ -16,4 +16,9 @@ class UserModel extends Model
     ];
     protected $returnType = 'object';
     protected $useTimestamps = false;
+
+    public function getUserByEmail($email)
+    {
+        return $this->where('email', $email)->first();
+    }
 }

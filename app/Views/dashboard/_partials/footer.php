@@ -490,3 +490,21 @@
         });
     }
 </script>
+<!-- Validasi users -->
+<script>
+    var emailInput = document.getElementById('email');
+    emailInput.addEventListener('input', validateEmail);
+
+    function validateEmail() {
+        var email = emailInput.value.trim();
+        var domain = email.split('@')[1];
+
+        var validDomains = ['gmail.com', 'students.uin-suska.ac.id', 'uin-suska.ac.id'];
+
+        if (!validDomains.includes(domain)) {
+            emailInput.classList.add('is-invalid');
+        } else {
+            emailInput.classList.remove('is-invalid');
+        }
+    }
+</script>

@@ -66,6 +66,15 @@ class Users extends BaseController
     {
         $email = $this->request->getPost('email');
 
+        // Validate email domain
+        $allowedDomains = ['gmail.com', 'students.uin-suska.ac.id', 'uin-suska.ac.id'];
+        $domain = explode('@', $email)[1];
+
+        if (!in_array($domain, $allowedDomains)) {
+            session()->setFlashdata('error', 'Invalid email domain.');
+            return redirect()->back();
+        }
+
         // Generate random username
         $username = substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 10);
 

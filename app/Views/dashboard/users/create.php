@@ -42,6 +42,7 @@
                                     <div class="form-group">
                                         <label for="email">Email</label>
                                         <input type="text" name="email" id="email" class="form-control" required>
+                                        <div class="invalid-feedback">Email tidak valid. Hanya menerima email dengan domain @gmail.com, @students.uin-suska.ac.id, atau @uin-suska.ac.id.</div>
                                     </div>
                                 </div>
                                 <div class="col">
