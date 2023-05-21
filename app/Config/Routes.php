@@ -67,6 +67,7 @@ $routes->get('blog', 'Blog::index');
 // $routes->get('dokumentasi', 'Dokumentasi::index');
 $routes->get('unduh', 'Unduh::index');
 $routes->get('kontak', 'Kontak::index');
+$routes->post('contact/store', 'ContactController::store');
 
 // users
 $routes->get('dashbor/users', 'Users::index');
